@@ -42,10 +42,11 @@ $(LIBS): $(SRC) $(INCLUDE) Makefile
 	chmod 644 $(LIB_STATIC)
 	rm -f $(LIB_OBJ)
 	ln -sf $(LIB_VERSION) $(LIB_BASE)
+	ln -sf $(LIB_VERSION) $(LIB_MAJOR)
 	mkdir -p $(addprefix build/, include lib src)
 	install -m 644 $(SRC) build/src
 	install -m 644 $(INCLUDE) build/include
-	mv $(LIB_VERSION) $(LIB_BASE) $(LIB_STATIC) build/lib
+	mv $(LIB_VERSION) $(LIB_BASE) $(LIB_MAJOR) $(LIB_STATIC) build/lib
 
 build/lib/$(LIB_BASE): build/lib/$(LIB_MAJOR)
 
